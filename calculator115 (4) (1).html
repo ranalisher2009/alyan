@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Scientific Calculator</title>
+	<style>
+		body {
+			background-color: black;
+			color: white;
+			font-size: 24px;
+			font-family: Arial, sans-serif;
+		}
+		table {
+			margin: auto;
+			border-collapse: collapse;
+		}
+		td {
+			padding: 10px;
+			border: 1px solid white;
+			background-color: #333;
+			text-align: center;
+			cursor: pointer;
+		}
+		input[type="text"] {
+			padding: 10px;
+			font-size: 32px;
+			border: none;
+			background-color: #333;
+			color: white;
+			text-align: right;
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<table>
+		<tr>
+			<td colspan="5"><input type="text" id="display" disabled></td>
+		</tr>
+		<tr>
+			<td onclick="updateDisplay('sin(')">sin</td>
+			<td onclick="updateDisplay('cos(')">cos</td>
+			<td onclick="updateDisplay('tan(')">tan</td>
+			<td onclick="updateDisplay('sqrt(')">sqrt</td>
+			<td onclick="updateDisplay('exp(')">exp</td>
+		</tr>
+		<tr>
+			<td onclick="updateDisplay('7')">7</td>
+			<td onclick="updateDisplay('8')">8</td>
+			<td onclick="updateDisplay('9')">9</td>
+			<td onclick="updateDisplay('/')">/</td>
+			<td onclick="updateDisplay('^')">x<sup>y</sup></td>
+		</tr>
+		<tr>
+			<td onclick="updateDisplay('4')">4</td>
+			<td onclick="updateDisplay('5')">5</td>
+			<td onclick="updateDisplay('6')">6</td>
+			<td onclick="updateDisplay('*')">*</td>
+			<td onclick="updateDisplay('log(')">log</td>
+		</tr>
+		<tr>
+			<td onclick="updateDisplay('1')">1</td>
+			<td onclick="updateDisplay('2')">2</td>
+			<td onclick="updateDisplay('3')">3</td>
+			<td onclick="updateDisplay('-')">-</td>
+			<td onclick="updateDisplay('(')">(</td>
+		</tr>
+		<tr>
+			<td onclick="updateDisplay('0')">0</td>
+			<td onclick="updateDisplay('.')">.</td>
+			<td onclick="calculate()">=</td>
+			<td onclick="updateDisplay('+')">+</td>
+			<td onclick="updateDisplay(')')">)</td>
+		</tr>
+		<tr>
+			<td colspan="5" onclick="clearDisplay()">Clear</td>
+		</tr>
+	</table>
+
+	<script>
+		function updateDisplay(value) {
+			document.getElementById("display").value += value;
+		}
+
+		function clearDisplay() {
+			document.getElementById("display").value = "";
+		}
+
+		function calculate() {
+			var result = eval(document.getElementById("display").value);
+			document.getElementById("display").value = result;
+		}
+	</script>
+</body>
+</html>
